@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-# TourCWE — join.tourcwe.com
+# TourCWE — come.tourcwe.com
 # GitHub + Netlify setup script
 # Run from inside the join-tourcwe/ directory
 # ============================================================
@@ -24,14 +24,14 @@ curl -s -X POST \
   -H "Authorization: token $GITHUB_TOKEN" \
   -H "Accept: application/vnd.github.v3+json" \
   https://api.github.com/user/repos \
-  -d "{\"name\":\"$REPO_NAME\",\"private\":false,\"description\":\"join.tourcwe.com — TourCWE website\"}" \
+  -d "{\"name\":\"$REPO_NAME\",\"private\":false,\"description\":\"come.tourcwe.com — TourCWE website\"}" \
   | grep -E '"full_name"|"html_url"|"message"'
 
 echo ""
 echo "📦 Initializing git and pushing..."
 git init
 git add .
-git commit -m "Initial site build — join.tourcwe.com"
+git commit -m "Initial site build — come.tourcwe.com"
 git branch -M main
 git remote add origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$REPO_NAME.git"
 git push -u origin main
