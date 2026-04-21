@@ -4,7 +4,7 @@
                   Dark #1c1c1c | Sage #607466
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600;700&family=Ubuntu:wght@700&display=swap');
 
 /* ---- Reset & Base ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,6 +23,7 @@
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Nunito', system-ui, sans-serif;
+  --font-brand:   'Ubuntu', system-ui, sans-serif;
 
   --max: 1180px;
   --nav-h: 72px;
@@ -53,7 +54,8 @@ h1, h2, h3, h4 {
   line-height: 1.15;
   color: var(--dark);
 }
-h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); }
+h1 { font-family: var(--font-brand); font-weight: 700; font-size: clamp(2.4rem, 4.6vw, 4rem); letter-spacing: -0.01em; }
+h1 em { font-style: normal; color: var(--blue); }
 h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); }
 h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 h4 { font-size: 1.2rem; }
@@ -156,15 +158,18 @@ em { font-style: italic; }
   justify-content: space-between;
 }
 .nav__logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--white);
-  transition: color .3s;
-  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
 }
-.nav.scrolled .nav__logo { color: var(--dark); }
-.nav__logo span { color: var(--gold); }
+.nav__logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+  transition: opacity .3s;
+}
+.nav__logo .on-light { display: none; }
+.nav.scrolled .nav__logo .on-dark { display: none; }
+.nav.scrolled .nav__logo .on-light { display: block; }
 
 .nav__links {
   display: flex;
@@ -286,10 +291,8 @@ em { font-style: italic; }
 .hero__content h1 {
   color: var(--white);
   margin-bottom: .6em;
-  font-weight: 600;
-  font-style: italic;
 }
-.hero__content h1 em { font-style: normal; color: var(--gold); }
+.hero__content h1 em { color: var(--blue); }
 .hero__lead {
   font-size: 1.15rem;
   color: rgba(255,255,255,.88);
@@ -529,8 +532,8 @@ em { font-style: italic; }
 }
 .page-hero__content { position: relative; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .page-hero .eyebrow { color: var(--gold); }
-.page-hero h1 { color: var(--white); font-weight: 600; font-style: italic; margin-bottom: .5em; }
-.page-hero h1 em { font-style: normal; color: var(--gold); }
+.page-hero h1 { color: var(--white); margin-bottom: .5em; }
+.page-hero h1 em { color: var(--blue); }
 .page-hero .lead { font-size: 1.1rem; color: rgba(255,255,255,.82); max-width: 600px; font-weight: 300; }
 
 /* ---- Photo Hero (with image) ---- */
@@ -562,8 +565,8 @@ em { font-style: italic; }
   width: 100%;
 }
 .photo-hero__content .eyebrow { color: var(--gold); }
-.photo-hero__content h1 { color: var(--white); font-style: italic; }
-.photo-hero__content h1 em { font-style: normal; color: var(--gold); }
+.photo-hero__content h1 { color: var(--white); }
+.photo-hero__content h1 em { color: var(--blue); }
 
 /* ---- Content Sections ---- */
 .content-grid {
@@ -784,7 +787,8 @@ em { font-style: italic; }
 /* ---- Blog Page ---- */
 .blog-hero { background: var(--sage); padding: calc(var(--nav-h) + 48px) 0 56px; }
 .blog-hero .eyebrow { color: var(--gold); }
-.blog-hero h1 { color: var(--white); font-style: italic; }
+.blog-hero h1 { color: var(--white); }
+.blog-hero h1 em { color: var(--blue); }
 .blog-hero p { color: rgba(255,255,255,.8); max-width: 520px; }
 
 .blog-main-grid {
@@ -839,13 +843,11 @@ em { font-style: italic; }
   margin-bottom: 56px;
 }
 .footer__brand .logo {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: var(--white);
-  margin-bottom: .5em;
   display: block;
+  height: 48px;
+  width: auto;
+  margin-bottom: 1em;
 }
-.footer__brand .logo span { color: var(--gold); }
 .footer__brand p { font-size: .88rem; line-height: 1.7; margin-bottom: 1.2em; }
 .footer__brand .contact { font-size: .85rem; }
 .footer__brand .contact a { color: rgba(255,255,255,.7); display: block; margin-bottom: 4px; }

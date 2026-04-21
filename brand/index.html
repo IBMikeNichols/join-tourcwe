@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TourCWE Brand Tenets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: var(--cream); color: var(--dark); }
+    main { max-width: 960px; margin: 0 auto; padding: 80px 32px; }
+    .brand-page h1 { margin-bottom: .4em; }
+    .brand-page h2 { font-family: var(--font-display); font-weight: 500; font-style: italic; margin: 2em 0 .6em; color: var(--dark); }
+    .brand-page h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; margin: 1.5em 0 .4em; color: var(--dark); }
+    .brand-page p { max-width: 68ch; }
+    .palette { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin: 20px 0 32px; }
+    .swatch { padding: 80px 16px 16px; border-radius: 6px; font-size: .85rem; color: var(--dark); }
+    .swatch.on-dark { color: var(--cream); }
+    .swatch code { display: block; font-size: .75rem; opacity: .8; margin-top: 2px; }
+    .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 20px 0 32px; }
+    .logo-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 32px 24px 16px; text-align: center; }
+    .logo-card.on-dark { background: var(--dark); border-color: var(--dark); }
+    .logo-card.on-cream { background: var(--cream); border-color: #e0dcc0; }
+    .logo-card img { max-width: 100%; max-height: 120px; margin: 0 auto 16px; }
+    .logo-card .caption { font-size: .8rem; color: #666; }
+    .logo-card.on-dark .caption { color: rgba(255,255,255,.6); }
+    .type-sample { font-size: 2.2rem; line-height: 1.1; margin: .3em 0; }
+    .type-meta { font-size: .85rem; color: #666; font-family: var(--font-body); }
+    dl.rules { display: grid; grid-template-columns: 200px 1fr; gap: 12px 24px; margin: 16px 0 24px; font-size: .95rem; }
+    dl.rules dt { font-weight: 600; color: var(--blue); }
+  </style>
+</head>
+<body>
+<main class="brand-page">
+
+<h1>TourCWE <em>Brand Tenets</em></h1>
+<p>Internal reference for the TourCWE visual system. The pieces here are the canonical set — colors, typography, logo lockups, and the voice rules they support.</p>
+
+<h2>Palette</h2>
+<div class="palette">
+  <div class="swatch on-dark" style="background:#628395">Blue<code>#628395</code></div>
+  <div class="swatch" style="background:#d6ce93">Gold<code>#d6ce93</code></div>
+  <div class="swatch" style="background:#efebce">Cream<code>#efebce</code></div>
+  <div class="swatch on-dark" style="background:#1c1c1c">Dark<code>#1c1c1c</code></div>
+  <div class="swatch on-dark" style="background:#607466">Sage<code>#607466</code></div>
+</div>
+<p><strong>Blue</strong> is primary. It replaces the old gold as the main accent color (wordmark, H1 emphasis, link hovers). <strong>Gold</strong> remains present as a warm secondary. <strong>Cream</strong> is the brand-light surface; <strong>Dark</strong> is the brand-dark surface.</p>
+
+<h2>Typography</h2>
+<h3>Display face: Ubuntu Bold</h3>
+<div class="type-sample" style="font-family: var(--font-brand); font-weight: 700;">TourCWE — See <em style="color:var(--blue);font-style:normal">St. Louis</em> from the neighborhood that built it.</div>
+<div class="type-meta">Ubuntu Bold 700. Used for the wordmark and every H1. &lt;em&gt; inside H1 = blue color accent (never italic).</div>
+
+<h3>Editorial face: Cormorant Garamond</h3>
+<div class="type-sample" style="font-family: var(--font-display); font-style: italic; font-weight: 500;">Gilded Age wealth and the neighborhood St. Louis built at its peak.</div>
+<div class="type-meta">Cormorant Garamond 500 italic. Used for H2–H4, pull quotes, and editorial flourishes.</div>
+
+<h3>Body face: Nunito</h3>
+<div class="type-sample" style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 400;">An award-winning St. Louis food + history walk, told from the Central West End.</div>
+<div class="type-meta">Nunito 300/400/500/600/700. All body text, buttons, navigation, forms.</div>
+
+<h2>Logo lockups</h2>
+<div class="logo-grid">
+  <div class="logo-card"><img src="/assets/logo/lockup-horizontal.svg" alt="Horizontal lockup on cream"><div class="caption">Horizontal — primary (cream/light bg)</div></div>
+  <div class="logo-card on-dark"><img src="/assets/logo/lockup-horizontal-on-dark.svg" alt="Horizontal lockup on dark"><div class="caption">Horizontal — on dark</div></div>
+  <div class="logo-card"><img src="/assets/logo/lockup-vertical.svg" alt="Vertical lockup on cream"><div class="caption">Vertical (avatars, stacked contexts)</div></div>
+  <div class="logo-card on-dark"><img src="/assets/logo/lockup-vertical-on-dark.svg" alt="Vertical lockup on dark"><div class="caption">Vertical — on dark</div></div>
+  <div class="logo-card on-cream"><img src="/assets/logo/logo-on-cream-disc.svg" alt="Lamp on cream disc"><div class="caption">Cream disc (favicon, circular avatars)</div></div>
+  <div class="logo-card"><img src="/assets/logo/lamp-tight.svg" alt="Lamp mark alone" style="max-height:160px"><div class="caption">Lamp mark alone</div></div>
+</div>
+
+<h3>Wordmark-only variants</h3>
+<div class="logo-grid">
+  <div class="logo-card"><img src="/assets/logo/wordmark-split-dark-blue.svg" alt="Wordmark split dark+blue" style="max-height:60px"><div class="caption">Split (Tour dark, CWE blue) — primary</div></div>
+  <div class="logo-card on-dark"><img src="/assets/logo/wordmark-on-dark.svg" alt="Wordmark on dark" style="max-height:60px"><div class="caption">Split on dark (Tour cream, CWE blue)</div></div>
+  <div class="logo-card"><img src="/assets/logo/wordmark-solid-dark.svg" alt="Solid dark wordmark" style="max-height:60px"><div class="caption">Solid dark (all one color)</div></div>
+  <div class="logo-card on-dark"><img src="/assets/logo/wordmark-solid-cream.svg" alt="Solid cream wordmark" style="max-height:60px"><div class="caption">Solid cream (all one color)</div></div>
+</div>
+
+<h2>Voice &amp; copy rules</h2>
+<dl class="rules">
+  <dt>Guide-agnostic</dt>
+  <dd>In public copy (OTAs, site body, listings), always refer to &ldquo;St. Louis locals with deep neighborhood roots.&rdquo; Mike is named only in the footer founder blurb and in the About context — not in tour descriptions, because other guides run these tours.</dd>
+
+  <dt>Self-selection over broad appeal</dt>
+  <dd>Copy is intentionally polarizing in places — the social-justice lens, the wealth/race/power framing, the refusal of a sanitized Chamber-of-Commerce tour. These phrases are features, not bugs: they filter incompatible guests before booking.</dd>
+
+  <dt>Historical accuracy</dt>
+  <dd>Never invent dates, heights, figures, or claims without verified sourcing. When facts are in dispute, say so rather than picking one. If a claim can&rsquo;t be stood up, remove it.</dd>
+
+  <dt>Food tour framing</dt>
+  <dd>&ldquo;Full spread&rdquo; &mdash; guests leave full, often skip dinner. Featured St. Louis inventions: toasted ravioli, gooey butter cake, Provel pizza. Venues are &ldquo;neighborhood mainstays,&rdquo; not chef-owned. Not a fixed-count restaurant crawl &mdash; some items eaten in non-restaurant settings.</dd>
+
+  <dt>Starting point</dt>
+  <dd>Dressel&rsquo;s Pub (near Euclid &amp; McPherson in the Central West End). Never Euclid &amp; Washington — that was an old start point.</dd>
+
+  <dt>Accessibility</dt>
+  <dd>Taste of Two Cities route IS wheelchair accessible — ~2 miles on flat, paved sidewalks. Forest Park Picnics waterproof blankets protect from wet grass below only; they are NOT rain cover overhead.</dd>
+
+  <dt>Privacy</dt>
+  <dd>4303 McPherson Ave is Mike&rsquo;s home. Never display it publicly — not on the site, not in OTA listings, not in schema, not in email signatures.</dd>
+</dl>
+
+<p style="margin-top: 64px; font-size: .85rem; color: #888;">Last refreshed: April 2026. Source assets regenerate from <code>~/Desktop/TourCWE/4-Marketing/brand/scripts/</code>.</p>
+
+</main>
+</body>
+</html>
