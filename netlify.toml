@@ -11,15 +11,31 @@
   to = "/tour/"
   status = 301
 
+# Forest Park Picnics lives at its own domain now.
+# force=true is required because /picnics/*/index.html still exist in the repo.
 [[redirects]]
   from = "/picnic"
-  to = "/picnics/"
+  to = "https://forestparkpicnics.com/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/picnic/*"
-  to = "/picnics/:splat"
+  to = "https://forestparkpicnics.com/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/picnics"
+  to = "https://forestparkpicnics.com/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/picnics/*"
+  to = "https://forestparkpicnics.com/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
