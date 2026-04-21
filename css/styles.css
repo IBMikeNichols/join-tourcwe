@@ -162,7 +162,7 @@ em { font-style: italic; }
   align-items: center;
 }
 .nav__logo img {
-  height: 36px;
+  height: 24px;
   width: auto;
   display: block;
   transition: opacity .3s;
@@ -844,7 +844,7 @@ em { font-style: italic; }
 }
 .footer__brand .logo {
   display: block;
-  height: 48px;
+  height: 32px;
   width: auto;
   margin-bottom: 1em;
 }
