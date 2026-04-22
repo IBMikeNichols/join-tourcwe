@@ -965,3 +965,39 @@ em { font-style: italic; }
   .testi-grid { grid-template-columns: 1fr; }
   .page-hero { padding-top: calc(var(--nav-h) + 40px); }
 }
+
+/* ── WCAG: Skip navigation ──────────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--gold);
+  color: var(--dark);
+  padding: .7rem 1.2rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top .15s ease;
+}
+.skip-nav:focus { top: 0; }
+
+/* ── WCAG: Focus indicators ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+/* Remove outline for mouse users only */
+:focus:not(:focus-visible) { outline: none; }
