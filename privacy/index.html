@@ -1,1 +1,184 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Privacy Policy &amp; Accessibility | TourCWE</title>
+  <meta name="description" content="TourCWE privacy policy, cookie notice, and accessibility statement.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://tourcwe.com/privacy/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:  #628395;
+      --gold:  #d6ce93;
+      --cream: #efebce;
+      --dark:  #1c1c1c;
+      --sage:  #607466;
+      --white: #fafaf7;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "Nunito", system-ui, sans-serif;
+      --font-brand:   "Ubuntu", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); font-size: 1rem; line-height: 1.75; }
+    a { color: var(--blue); }
+    a:hover { color: var(--sage); }
+
+    /* NAV */
+    .nav { background: var(--dark); padding: 0 clamp(1rem,4vw,2.5rem); display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav__logo img { height: 36px; width: auto; }
+    .nav__links { display: flex; gap: 1.5rem; }
+    .nav__links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .03em; }
+    .nav__links a:hover { color: var(--gold); }
+    .nav__cta { background: var(--gold); color: var(--dark); padding: 8px 18px; border-radius: 4px; font-weight: 700; font-size: .82rem; text-decoration: none; }
+    .nav__cta:hover { background: #bdb87a; color: var(--dark); }
+
+    /* CONTENT */
+    .container { max-width: 740px; margin: 0 auto; padding: 3rem clamp(1rem,4vw,2rem) 4rem; }
+    .page-title { font-family: var(--font-brand); font-weight: 700; font-size: clamp(1.8rem,3.5vw,2.6rem); margin-bottom: .3em; color: var(--dark); }
+    .updated { font-size: .82rem; color: var(--sage); margin-bottom: 2.5rem; }
+    h2 { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; margin: 2.2rem 0 .6rem; color: var(--dark); border-bottom: 1px solid rgba(0,0,0,.1); padding-bottom: .3em; }
+    h3 { font-size: 1rem; font-weight: 700; margin: 1.4rem 0 .3rem; }
+    p { margin-bottom: 1em; }
+    ul { margin: .5em 0 1em 1.4em; }
+    ul li { margin-bottom: .35em; }
+    .highlight-box { background: rgba(98,131,149,.08); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
+    .contact-card { background: var(--dark); color: rgba(255,255,255,.85); border-radius: 8px; padding: 1.2rem 1.4rem; margin-top: 1rem; font-size: .92rem; }
+    .contact-card a { color: var(--gold); }
+    .toc { background: rgba(0,0,0,.04); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 2rem; font-size: .9rem; }
+    .toc ol { margin: .4rem 0 0 1.2rem; }
+    .toc li { margin-bottom: .2rem; }
+    .toc a { color: var(--blue); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    .footer { background: var(--dark); color: rgba(255,255,255,.6); padding: 1.5rem clamp(1rem,4vw,2.5rem); font-size: .82rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+    .footer a:hover { color: rgba(255,255,255,.7); }
+  </style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav__logo" href="/">
+    <img src="/assets/logo/lockup-horizontal-on-dark.svg" alt="TourCWE" height="36">
+  </a>
+  <div class="nav__links">
+    <a href="/tour/">The Tour</a>
+    <a href="https://forestparkpicnics.com" target="_blank" rel="noopener">Picnics</a>
+  </div>
+  <a class="nav__cta" href="/tour/#book">Book Now</a>
+</nav>
+
+<main class="container">
+  <h1 class="page-title">Privacy Policy &amp; Accessibility</h1>
+  <p class="updated">Effective date: April 22, 2026 &nbsp;|&nbsp; TourCWE, St. Louis, MO &nbsp;|&nbsp; <a href="mailto:info@tourcwe.com">info@tourcwe.com</a></p>
+
+  <div class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#data-collected">Information we collect</a></li>
+      <li><a href="#how-used">How we use it</a></li>
+      <li><a href="#third-parties">Third-party services</a></li>
+      <li><a href="#cookies">Cookies &amp; tracking</a></li>
+      <li><a href="#your-rights">Your rights</a></li>
+      <li><a href="#data-retention">Data retention</a></li>
+      <li><a href="#contact">Contact us</a></li>
+      <li><a href="#accessibility">Accessibility statement</a></li>
+    </ol>
+  </div>
+
+  <p>TourCWE (&ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;) operates tourcwe.com. This page explains what information we collect when you visit or book through our site, how we use it, and your rights as a visitor or guest.</p>
+
+  <h2 id="data-collected">1. Information we collect</h2>
+  <p>We collect information in two ways:</p>
+  <h3>Information you provide directly</h3>
+  <ul>
+    <li>Name, email address, and phone number when you make a booking</li>
+    <li>Number of guests and any notes you include with your booking</li>
+    <li>Payment information — processed and stored by Bokun, our booking platform (we do not store card data)</li>
+  </ul>
+  <h3>Information collected automatically</h3>
+  <ul>
+    <li>Standard server access logs (IP address, browser type, pages visited, referring URL) collected by Netlify, our hosting provider</li>
+    <li>Cookie preferences you set on this site (stored locally in your browser)</li>
+  </ul>
+  <div class="highlight-box">We do not use Google Analytics or any third-party behavioral tracking on tourcwe.com.</div>
+
+  <h2 id="how-used">2. How we use it</h2>
+  <ul>
+    <li>To confirm, manage, and fulfill your booking</li>
+    <li>To communicate with you about your tour (confirmation emails, day-of logistics)</li>
+    <li>To respond to inquiries sent to info@tourcwe.com</li>
+    <li>To maintain the security and performance of our website</li>
+  </ul>
+  <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+  <h2 id="third-parties">3. Third-party services</h2>
+  <p>This site uses the following third-party services, each with their own privacy practices:</p>
+  <ul>
+    <li><strong>Bokun</strong> &mdash; booking platform and payment processor. Bokun stores guest data on our behalf. See <a href="https://bokun.io/privacy-policy" target="_blank" rel="noopener">Bokun&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Netlify</strong> &mdash; website hosting and CDN. Netlify may collect standard server logs. See <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify&rsquo;s Privacy Policy</a>.</li>
+    <li><strong>Google Fonts</strong> &mdash; typography. Google may log font requests. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s Privacy Policy</a>.</li>
+  </ul>
+
+  <h2 id="cookies">4. Cookies &amp; tracking</h2>
+  <p>This site uses only essential functional cookies. We do not place advertising or behavioral tracking cookies.</p>
+  <ul>
+    <li><strong>tcwe_cookie_consent</strong> &mdash; stores your cookie preference so we don&rsquo;t ask again. Expires after 365 days.</li>
+    <li><strong>Bokun booking widget</strong> &mdash; the booking widget may set session cookies to maintain your booking state. These are strictly necessary for the checkout process.</li>
+  </ul>
+  <p>You can clear cookies at any time in your browser settings.</p>
+
+  <h2 id="your-rights">5. Your rights</h2>
+  <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+  <ul>
+    <li><strong>Access</strong> &mdash; request a copy of the data we hold about you</li>
+    <li><strong>Correction</strong> &mdash; ask us to correct inaccurate information</li>
+    <li><strong>Deletion</strong> &mdash; request that we delete your personal data</li>
+    <li><strong>Portability</strong> &mdash; receive your data in a machine-readable format</li>
+    <li><strong>Objection</strong> &mdash; object to certain types of processing</li>
+  </ul>
+  <p>To exercise any of these rights, email us at <a href="mailto:info@tourcwe.com">info@tourcwe.com</a>. We will respond within 30 days. If you are in the European Economic Area, you also have the right to lodge a complaint with your local data protection authority.</p>
+
+  <h2 id="data-retention">6. Data retention</h2>
+  <p>We retain booking records for up to 3 years for tax and business purposes. Server access logs are retained by Netlify per their standard policies. You may request deletion of your personal data at any time; we will honor such requests unless retention is required by law.</p>
+
+  <h2 id="contact">7. Contact us</h2>
+  <p>Questions, requests, or concerns about this policy:</p>
+  <div class="contact-card">
+    TourCWE &nbsp;&mdash;&nbsp; St. Louis, Missouri<br>
+    <a href="mailto:info@tourcwe.com">info@tourcwe.com</a><br>
+    <a href="tel:+13143123549">314.312.3549</a>
+  </div>
+
+  <h2 id="accessibility">8. Accessibility statement</h2>
+  <p>TourCWE is committed to making tourcwe.com accessible to all visitors, including people with disabilities. We are working toward conformance with <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Level AA</a> guidelines.</p>
+  <h3>Known limitations</h3>
+  <p>This site is actively being improved. We are aware of the following areas under remediation:</p>
+  <ul>
+    <li>Some images may be missing descriptive alt text</li>
+    <li>Skip-navigation links are not yet implemented</li>
+  </ul>
+  <h3>Request an accommodation</h3>
+  <p>If you encounter a barrier or need assistance using any part of our site, please contact us at <a href="mailto:info@tourcwe.com">info@tourcwe.com</a> or <a href="tel:+13143123549">314.312.3549</a>. We will do our best to provide information in an accessible format or accommodate your needs for any of our experiences.</p>
+  <div class="highlight-box">The Taste of Two Cities walking tour follows a wheelchair-accessible route: approximately 2 miles on flat, paved sidewalks.</div>
+</main>
+
+<footer class="footer" aria-label="Site footer">
+  <span>&copy; 2026 TourCWE &middot; All rights reserved</span>
+  <span>
+    <a href="https://forestparkpicnics.com" target="_blank" rel="noopener">Forest Park Picnics</a>
+    &nbsp;&middot;&nbsp;
+    <a href="/privacy/">Privacy &amp; Accessibility</a>
+  </span>
+</footer>
+
+</body>
+</html>
