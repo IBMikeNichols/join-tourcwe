@@ -93,19 +93,18 @@
       margin-bottom: 10px;
     }
 
-    /* Partner links row */
-    .partner-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    /* Partner links row — icon-only buttons */
+    .partner-links { display: flex; gap: 8px; }
     .partner-link {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 5px 10px; border-radius: 20px;
-      font-size: .75rem; font-weight: 700; text-decoration: none;
-      border: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.6);
-      transition: all .18s; white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.55);
+      text-decoration: none; transition: all .18s; flex-shrink: 0;
     }
-    .partner-link:hover { border-color: rgba(255,255,255,.3); color: #fff; }
+    .partner-link:hover { border-color: rgba(255,255,255,.4); color: #fff; }
     .partner-link.ig:hover { border-color: #e1306c; color: #e1306c; }
     .partner-link.reviews:hover { border-color: #fbbc05; color: #fbbc05; }
-    .partner-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+    .partner-link svg { width: 15px; height: 15px; fill: currentColor; }
 
     /* ── Dishes ─────────────────────────────── */
     .dishes-list { padding: 12px 16px 16px; }
@@ -280,9 +279,9 @@ function renderPartnerCard(restaurantName, dishes) {
     : `<span style="font-size:${p.initials && p.initials.length > 1 ? '.95rem' : '1.2rem'}">${esc(p.initials || restaurantName[0])}</span>`;
 
   const linksHTML = [
-    p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener" class="partner-link web">${ICON_GLOBE}${esc(p.websiteLabel || p.website)}</a>` : '',
-    p.instagram ? `<a href="${esc(p.instagram)}" target="_blank" rel="noopener" class="partner-link ig">${ICON_INSTAGRAM}${esc(p.instagramHandle || 'Instagram')}</a>` : '',
-    p.googleReviews ? `<a href="${esc(p.googleReviews)}" target="_blank" rel="noopener" class="partner-link reviews">${ICON_STAR}Google Reviews</a>` : ''
+    p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener" class="partner-link web" aria-label="Website" title="Website">${ICON_GLOBE}</a>` : '',
+    p.instagram ? `<a href="${esc(p.instagram)}" target="_blank" rel="noopener" class="partner-link ig" aria-label="Instagram" title="Instagram">${ICON_INSTAGRAM}</a>` : '',
+    p.googleReviews ? `<a href="${esc(p.googleReviews)}" target="_blank" rel="noopener" class="partner-link reviews" aria-label="Google Reviews" title="Google Reviews">${ICON_STAR}</a>` : ''
   ].filter(Boolean).join('');
 
   const dishesHTML = dishes.map(d => `
