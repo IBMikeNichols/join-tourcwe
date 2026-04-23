@@ -75,21 +75,17 @@
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "url": "https://tourcwe.com/tour/#book"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "38",
-      "bestRating": "5",
-      "worstRating": "1"
     }
   }
   </script>
 
-  <!-- Schema: Product (parallel block for star-snippet eligibility).
+  <!-- Schema: Product (star-snippet eligibility).
+       aggregateRating lives here, NOT on the TouristTrip block above.
        Google policy: inline review[] on a business's own page is ineligible
        for Review rich results. aggregateRating on Product is the accepted
-       pattern for star snippets. Do not re-add review[] here. -->
+       pattern for star snippets in SERP. Do not re-add review[] here, and
+       do not duplicate aggregateRating onto TouristTrip — it causes a
+       critical Review-snippet error in Rich Results Test. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
