@@ -9,8 +9,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <title>TourCWE | St. Louis Food + History Walking Tour of the Central West End</title>
-  <meta name="description" content="Award-winning food + history walking tour through the Central West End — the real story of St. Louis, told by a native raconteur. Thu–Sat at 2pm. Book direct.">
-  <meta name="keywords" content="St. Louis food tour, Central West End tour, STL history tour, St. Louis experiences, CWE walking tour, A Taste of Two Cities">
+  <meta name="description" content="Award-winning food + history walking tour through the Central West End — the real story of St. Louis, told by locals with deep roots. Thu–Sat at 2pm. Book direct.">
   <link rel="canonical" href="https://tourcwe.com/">
 
   <!-- Open Graph -->
@@ -20,14 +19,23 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://bokun.s3.amazonaws.com/15a46711-274c-4d02-aa66-612cefc8b916.jpg">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TourCWE | St. Louis Food + History Walking Tour of the Central West End">
+  <meta name="twitter:description" content="Explore St. Louis like a local. An award-winning food + history walking tour of the Central West End, led by locals with deep neighborhood roots.">
+  <meta name="twitter:image" content="https://bokun.s3.amazonaws.com/15a46711-274c-4d02-aa66-612cefc8b916.jpg">
+
   <!-- Schema: LocalBusiness -->
+  <!-- NOTE: address intentionally omits streetAddress. 4303 McPherson is a home
+       address; only city/region/zip are safe to publish. Do not add streetAddress. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "TravelAgency"],
     "name": "TourCWE",
     "description": "Award-winning food and history walking tour of the Central West End in St. Louis, Missouri.",
     "url": "https://tourcwe.com",
+    "image": "https://tourcwe.com/images/maryland-plaza-lamp-hotel.jpg",
     "telephone": "+13143123549",
     "email": "info@tourcwe.com",
     "address": {
@@ -49,7 +57,18 @@
       "bestRating": "5"
     },
     "priceRange": "$$",
-    "openingHours": "We,Th,Fr,Sa,Su"
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday", "Friday", "Saturday"],
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.viator.com/tours/St-Louis/Hidden-History-and-Local-Flavors-of-the-Central-West-End/d24780-5551344P1",
+      "https://www.getyourguide.com/st-louis-l1443/-t947537/"
+    ]
   }
   </script>
 
