@@ -73,7 +73,7 @@
       border-bottom: 1px solid rgba(255,255,255,.07);
     }
 
-    /* Logo badge */
+    /* Logo badge — fallback shows initials on colored bg; with logo, white card with contained image */
     .partner-logo {
       width: 52px; height: 52px; border-radius: 10px;
       flex-shrink: 0; overflow: hidden;
@@ -81,7 +81,11 @@
       font-family: var(--font-brand); font-weight: 700; font-size: 1.1rem;
       color: #fff; letter-spacing: -.01em;
     }
-    .partner-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .partner-logo.has-image {
+      background: #fff;
+      padding: 4px;
+    }
+    .partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
     .partner-info { flex: 1; min-width: 0; }
     .partner-name {
@@ -121,6 +125,20 @@
     }
     .return-label { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
     .return-text { font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.6; }
+    .return-text a.review-cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 6px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity .18s;
+    }
+    .return-text a.review-cta:hover { opacity: .85; }
+    .return-text a.review-cta::after { content: ' \2192'; }
     .contact-line { text-align: center; font-size: .83rem; color: rgba(255,255,255,.35); padding-top: 4px; }
     .contact-line a { color: var(--gold); text-decoration: none; font-weight: 700; }
 
@@ -167,8 +185,10 @@
 <script>
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT1MiNc2fqE30aVjm64aNXOEiZ_KFIFYlTvbWcCW_OVJvc_LKlBfEdEvNe3hTqiMW79QLjfM3qS2Fzu/pub?output=csv';
 
-// ── Partner metadata ──────────────────────────────────────────────────────────
-// logo_url: replace '' with a hosted image URL to show a real logo
+// ── Partner metadata (fallback values) ────────────────────────────────────────
+// Sheet columns E (logo) and F (url) override `logo_url` and `website` here.
+// Tagline, instagram, googleReviews, initials, and badgeColor stay hardcoded
+// since they change rarely. Add new partners by extending this object.
 const PARTNERS = {
   "Straub's Market": {
     tagline: "The neighborhood grocer St. Louis has trusted since 1901.",
@@ -203,16 +223,16 @@ const PARTNERS = {
     initials: "G",
     badgeColor: "#7d4f14"
   },
-  "The Cup": {
-    tagline: "St. Louis' original gourmet cupcake bakery. In the CWE since 2007.",
-    website: "https://www.cravethecup.com",
-    websiteLabel: "cravethecup.com",
-    instagram: "https://www.instagram.com/cravethecup/",
-    instagramHandle: "@cravethecup",
-    googleReviews: "https://maps.google.com/?q=The+Cup+28+Maryland+Plaza+St+Louis+MO+63108",
+  "Serendipity": {
+    tagline: "Premium small-batch ice cream from The Grove. STL-inspired flavors\u2014gooey butter, red hot riplets, and more.",
+    website: "",
+    websiteLabel: "",
+    instagram: "https://www.instagram.com/serendipityicecream/",
+    instagramHandle: "@serendipityicecream",
+    googleReviews: "https://maps.google.com/?q=Serendipity+Homemade+Ice+Cream+4400+Manchester+Ave+St+Louis+MO+63110",
     logo_url: "",
-    initials: "TC",
-    badgeColor: "#8b3a62"
+    initials: "S",
+    badgeColor: "#d63384"
   }
 };
 
@@ -239,9 +259,12 @@ function parseCSV(text) {
   return rows;
 }
 
+// Builds menu data + a sheetOverrides map keyed by restaurant name.
+// sheetOverrides[name] = { logo_url?, website? } — sheet wins over PARTNERS.
 function buildMenuData(rows) {
   let returnNote = '', contact = '';
   const artHill = [], muny = [];
+  const sheetOverrides = {};
   for (const row of rows) {
     const type = (row[0] || '').trim().toUpperCase();
     if (!type || type.startsWith('--') || type === 'PICNIC') continue;
@@ -249,10 +272,20 @@ function buildMenuData(rows) {
     if (type === 'CONTACT') { contact = row[1] || ''; continue; }
     const item = { restaurant: row[1] || '', dish: row[2] || '', note: row[3] || '' };
     if (!item.restaurant || !item.dish) continue;
+
+    // Capture sheet-driven overrides per restaurant (last non-empty wins)
+    const logo = (row[4] || '').trim();
+    const url = (row[5] || '').trim();
+    if (logo || url) {
+      if (!sheetOverrides[item.restaurant]) sheetOverrides[item.restaurant] = {};
+      if (logo) sheetOverrides[item.restaurant].logo_url = logo;
+      if (url) sheetOverrides[item.restaurant].website = url;
+    }
+
     if (type === 'ART_HILL') artHill.push(item);
     if (type === 'MUNY') muny.push(item);
   }
-  return { returnNote, contact, artHill, muny };
+  return { returnNote, contact, artHill, muny, sheetOverrides };
 }
 
 function groupByRestaurant(items) {
@@ -269,13 +302,18 @@ function esc(s) {
 }
 
 // ── Render a partner card ─────────────────────────────────────────────────────
-function renderPartnerCard(restaurantName, dishes) {
-  const p = PARTNERS[restaurantName] || {};
+function renderPartnerCard(restaurantName, dishes, overrides) {
+  const base = PARTNERS[restaurantName] || {};
+  // Sheet overrides win over hardcoded fallbacks
+  const p = { ...base, ...(overrides || {}) };
   const color = p.badgeColor || '#628395';
 
-  // Logo: real image or styled badge
-  const logoHTML = p.logo_url
-    ? `<img src="${esc(p.logo_url)}" alt="${esc(restaurantName)} logo">`
+  // Logo: real image (white card bg) or styled badge with initials
+  const hasImage = !!p.logo_url;
+  const logoStyle = hasImage ? '' : `background:${color}`;
+  const logoClass = hasImage ? 'partner-logo has-image' : 'partner-logo';
+  const logoHTML = hasImage
+    ? `<img src="${esc(p.logo_url)}" alt="${esc(restaurantName)} logo" loading="lazy">`
     : `<span style="font-size:${p.initials && p.initials.length > 1 ? '.95rem' : '1.2rem'}">${esc(p.initials || restaurantName[0])}</span>`;
 
   const linksHTML = [
@@ -293,7 +331,7 @@ function renderPartnerCard(restaurantName, dishes) {
   return `
   <div class="partner-card">
     <div class="partner-header">
-      <div class="partner-logo" style="background:${color}">${logoHTML}</div>
+      <div class="${logoClass}" style="${logoStyle}">${logoHTML}</div>
       <div class="partner-info">
         <div class="partner-name">${esc(restaurantName)}</div>
         ${p.tagline ? `<div class="partner-tagline">${esc(p.tagline)}</div>` : ''}
@@ -305,10 +343,12 @@ function renderPartnerCard(restaurantName, dishes) {
 }
 
 // ── Render full section ───────────────────────────────────────────────────────
-function renderSection(items) {
+function renderSection(items, sheetOverrides) {
   if (!items.length) return '<div class="state-msg">Menu not set yet.</div>';
   const grouped = groupByRestaurant(items);
-  return [...grouped.entries()].map(([name, dishes]) => renderPartnerCard(name, dishes)).join('');
+  return [...grouped.entries()]
+    .map(([name, dishes]) => renderPartnerCard(name, dishes, sheetOverrides[name]))
+    .join('');
 }
 
 // ── Section switcher ──────────────────────────────────────────────────────────
@@ -319,7 +359,10 @@ function activateSection(section) {
   document.getElementById('btn-muny').classList.toggle('active', section === 'muny');
   if (!menuData) return;
   const body = document.getElementById('menu-body');
-  body.innerHTML = renderSection(section === 'muny' ? menuData.muny : menuData.artHill);
+  body.innerHTML = renderSection(
+    section === 'muny' ? menuData.muny : menuData.artHill,
+    menuData.sheetOverrides
+  );
   setTimeout(() => window.scrollTo({ top: document.querySelector('.picker').offsetTop - 12, behavior: 'smooth' }), 50);
 }
 
@@ -332,7 +375,25 @@ async function loadMenu() {
     const hash = location.hash.replace('#','').toLowerCase();
     activateSection(hash === 'muny' ? 'muny' : 'art-hill');
     if (menuData.returnNote) {
-      document.getElementById('return-text').textContent = menuData.returnNote;
+      const el = document.getElementById('return-text');
+      const URL_RE = /https?:\/\/[^\s]+/g;
+      const parts = menuData.returnNote.split(URL_RE);
+      const urls = menuData.returnNote.match(URL_RE) || [];
+      el.textContent = '';
+      parts.forEach((part, i) => {
+        el.appendChild(document.createTextNode(part));
+        if (urls[i]) {
+          const url = urls[i];
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          const isGoogleReview = /g\.page|google\.com.*review/i.test(url);
+          a.textContent = isGoogleReview ? 'Leave a Review on Google' : url;
+          if (isGoogleReview) a.className = 'review-cta';
+          el.appendChild(a);
+        }
+      });
       document.getElementById('page-footer').style.display = '';
     }
     if (menuData.contact) {
