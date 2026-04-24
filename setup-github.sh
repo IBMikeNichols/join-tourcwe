@@ -9,7 +9,7 @@ set -e
 
 # ---- CONFIG: fill these in ----
 GITHUB_TOKEN=""          # Your GitHub Personal Access Token (repo scope)
-GITHUB_USERNAME=""       # Your GitHub username (e.g. IBMikeNichols)
+GITHUB_USERNAME=""       # Your GitHub username (e.g. racon-tours)
 REPO_NAME="join-tourcwe"
 NETLIFY_SITE_ID="d1d4d320-fb54-49e0-904d-ea713138605c"
 
