@@ -192,9 +192,9 @@ const PUB_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT1MiNc2fqE30a
 // Today's Menu is always gid=0. Partners / Menu Items are null until those
 // tabs exist; code gracefully falls back to the hardcoded PARTNERS const and
 // to legacy C=dish/D=description columns in the menu tab.
-const GID_MENU     = 0;
-const GID_PARTNERS = null; // TODO: set after Partners tab created
-const GID_ITEMS    = null; // TODO: set after Menu Items tab created
+const GID_MENU     = 1574930237;
+const GID_PARTNERS = 0;         // Partners tab
+const GID_ITEMS    = 791335469; // Menu Items tab
 
 const MENU_CSV     = PUB_BASE + '&gid=' + GID_MENU;
 const PARTNERS_CSV = GID_PARTNERS !== null ? PUB_BASE + '&gid=' + GID_PARTNERS : null;
