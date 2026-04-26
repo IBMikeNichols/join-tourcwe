@@ -102,7 +102,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "38",
+      "reviewCount": "40",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -117,7 +117,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/css/styles.css?v=2026-04-21b">
+  <link rel="stylesheet" href="/css/styles.css?v=2026-04-25">
 
   <!-- Perf: warm the connection to Bokun's S3 bucket (used for hero background + photo strip) -->
   <link rel="preconnect" href="https://bokun.s3.amazonaws.com" crossorigin>
@@ -176,7 +176,7 @@
           <div style="display:flex;align-items:center;gap:8px;">
             <span style="color:#c9a227;font-size:1.1rem;letter-spacing:2px;">★★★★★</span>
             <strong>4.8</strong>
-            <span style="color:#666;font-size:.9rem;">(38 reviews · 95% recommend)</span>
+            <span style="color:#666;font-size:.9rem;">(40 reviews · 95% recommend)</span>
           </div>
           <span style="font-size:.85rem;color:var(--sage);font-weight:600;">Booked 28 days in advance on average</span>
         </div>
@@ -348,16 +348,14 @@
 
         <!-- Testimonials -->
         <h3 style="margin-top:2.5em;">What Recent Guests Are Saying</h3>
-        <div class="testi-grid" style="grid-template-columns:1fr 1fr;">
-          <div class="testi-card" style="background:var(--white);border:1px solid var(--cream-dark);">
-            <div class="star-row"><span style="color:#c9a227;">★★★★★</span></div>
-            <p style="color:#444;">"Mike's passion for St. Louis history is contagious. We got to enjoy a range of local eats and left with a plan for where else to eat. CWE Tours paid attention to so many little details."</p>
-            <div class="testi-card__author" style="color:var(--blue);">Verified Guest</div>
-          </div>
-          <div class="testi-card" style="background:var(--white);border:1px solid var(--cream-dark);">
-            <div class="star-row"><span style="color:#c9a227;">★★★★★</span></div>
-            <p style="color:#444;">"If you're looking for a unique way to experience St. Louis, this is it. Our guide was fantastic — he loved sharing the history of his neighborhood and it showed in every story."</p>
-            <div class="testi-card__author" style="color:var(--blue);">Verified Guest</div>
+        <!-- Reviews carousel — data: /data/reviews.json, JS: /js/reviews-carousel.js -->
+        <div data-reviews-carousel class="testi-carousel--light" aria-label="Recent guest reviews">
+          <!-- Static fallback — replaced by JS once /data/reviews.json loads -->
+          <div class="testi-card">
+            <div class="star-row"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p>Mike is the consummate storyteller. A very balanced view of history. No punches pulled. Every part is human, beautiful and ugly.</p>
+            <div class="testi-card__author">ahunkins · Minneapolis, MN</div>
+            <div class="testi-card__source">Oct 2025 · via TripAdvisor</div>
           </div>
         </div>
 
@@ -371,7 +369,7 @@
           <div class="rating-row">
             <span class="rating-stars">★★★★★</span>
             <span><strong>4.8</strong></span>
-            <span class="rating-count">(38 reviews)</span>
+            <span class="rating-count">(40 reviews)</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.2em;">
             <div style="display:flex;gap:10px;font-size:.88rem;color:#555;align-items:center;">
@@ -500,5 +498,6 @@
 </footer>
 
 <script src="/js/main.js" defer></script>
+<script src="/js/reviews-carousel.js" defer></script>
 </body>
 </html>

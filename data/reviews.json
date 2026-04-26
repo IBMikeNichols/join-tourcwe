@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-04-25",
+  "_notes": "Curated 5-star reviews for the homepage + tour-page carousel. Order is the rotation order (first review shows on initial load). To update: edit this file and push to main — Netlify rebuild auto-deploys. See ~/dev/ops/docs/reviews-carousel.md for editing conventions.",
+  "reviews": [
+    {
+      "id": "ta-ahunkins-2025-10",
+      "text": "Mike is the consummate storyteller. A very balanced view of history. No punches pulled. Every part is human, beautiful and ugly.",
+      "author": "ahunkins",
+      "location": "Minneapolis, MN",
+      "date": "2025-10",
+      "source": "tripadvisor",
+      "rating": 5
+    },
+    {
+      "id": "ta-kelly-e-2025-09",
+      "text": "Mike was excellent. This is a tour you don't want to miss. Mike had so much to share — he was articulate, funny and well versed on the history of STL. The food was absolutely Delicious. I always book a walking history/food tour in every city I visit and this was hands down the best.",
+      "author": "Kelly E.",
+      "location": null,
+      "date": "2025-09",
+      "source": "tripadvisor",
+      "rating": 5
+    },
+    {
+      "id": "v-teandra-y-2025-06",
+      "text": "Our guide was knowledgeable, engaging, and brought the city's complex history to life in a way that felt both honest and refreshing. Even my fiancé, a lifelong St. Louis resident, learned new things about the city's past, both the proud and painful parts, which made the tour feel that much more meaningful.",
+      "author": "TeAndra Y.",
+      "location": null,
+      "date": "2025-06",
+      "source": "viator",
+      "rating": 5
+    },
+    {
+      "id": "ta-brooke-h-2025-10",
+      "text": "A great combo of history, walking, and food. Mike was SO knowledgeable about the area and we loved his passion for sharing that knowledge with others. He was well organized, the walking was just the right amount, and we liked the variety of the foods. Highly recommend this one!",
+      "author": "Brooke H.",
+      "location": "Huntsville, AL",
+      "date": "2025-10",
+      "source": "tripadvisor",
+      "rating": 5
+    },
+    {
+      "id": "v-heather-s-2025-10",
+      "text": "Dave was a fantastic tour guide. He was so knowledgeable about the Central West End and St. Louis in general! It was wonderful learning so much information! The food stops were wonderful too, introducing me to new eateries in St. Louis I didn't know were there. I loved that the food was St. Louis-themed, too. I recommend this tour to anyone!",
+      "author": "Heather S.",
+      "location": null,
+      "date": "2025-10",
+      "source": "viator",
+      "rating": 5
+    },
+    {
+      "id": "v-gail-k-2025-10",
+      "text": "This was a great experience. There was plenty of delicious food and interesting facts about the history of St. Louis, past and present. It went the whole 3 hours plus some and I was definitely full at the end.",
+      "author": "Gail K.",
+      "location": null,
+      "date": "2025-10",
+      "source": "viator",
+      "rating": 5
+    }
+  ]
+}

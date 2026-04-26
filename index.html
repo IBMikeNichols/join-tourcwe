@@ -51,10 +51,10 @@
       "longitude": -90.2624
     },
     "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "38",
-      "bestRating": "5"
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "40",
+    "bestRating": "5"
     },
     "priceRange": "$$",
     "openingHoursSpecification": [
@@ -72,7 +72,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/css/styles.css?v=2026-04-25a">
+  <link rel="stylesheet" href="/css/styles.css?v=2026-04-25b">
 
   <!-- Perf: warm the connection to Bokun's S3 bucket (used for content card images) -->
   <link rel="preconnect" href="https://bokun.s3.amazonaws.com" crossorigin>
@@ -128,7 +128,7 @@
     </div>
     <div class="trust-item">
       <span class="trust-item__icon">⭐</span>
-      <span><strong>4.8 Stars</strong> · 38+ Reviews</span>
+      <span><strong>4.8 Stars</strong> · 40+ Reviews</span>
     </div>
     <div class="trust-item">
       <span class="trust-item__icon">📅</span>
@@ -210,38 +210,26 @@
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
+<!-- Reviews carousel: data lives in /data/reviews.json,
+     JS in /js/reviews-carousel.js. Static fallback card below renders
+     the first review pre-JS so the section never appears empty. -->
 <section class="testimonials" aria-labelledby="testimonials-heading">
   <div class="container">
     <div class="section-header">
       <span class="eyebrow">What Guests Are Saying</span>
       <h2 id="testimonials-heading">Don't Take Our Word for It</h2>
       <div class="divider"></div>
-      <p style="color:rgba(255,255,255,.7)">4.8 stars · 38+ verified reviews · Badge of Excellence · 95% recommend.</p>
+      <p style="color:rgba(255,255,255,.7)">4.8 stars · 40+ verified reviews · Badge of Excellence · 95% recommend.</p>
     </div>
-    <div class="testi-grid">
+    <div data-reviews-carousel aria-label="Guest reviews">
+      <!-- Static fallback — replaced by JS once /data/reviews.json loads -->
       <div class="testi-card">
         <div class="star-row" aria-label="5 out of 5 stars">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
-        <p>"Mike is an amazing tour guide! He had so much to tell about STL history and his passion came through! We had so much yummy food to eat and a plan for where else we wanted to visit. Well worth the ticket."</p>
-        <div class="testi-card__author">Verified Guest</div>
-        <div class="testi-card__source">5-Star Verified Guest</div>
-      </div>
-      <div class="testi-card">
-        <div class="star-row" aria-label="5 out of 5 stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p>"CWE Tours did a wonderful job choosing tour topics, stops, and selecting the food. Making it one of the better organized tours we've been on — a great mix of culture, history, flavor, and fun."</p>
-        <div class="testi-card__author">Verified Guest</div>
-        <div class="testi-card__source">5-Star Verified Guest</div>
-      </div>
-      <div class="testi-card">
-        <div class="star-row" aria-label="5 out of 5 stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p>"Mike did a great job sharing his passion and history for St. Louis. Highly recommend this tour when in town! Great food and great company. A unique way to experience this city."</p>
-        <div class="testi-card__author">Verified Guest</div>
-        <div class="testi-card__source">5-Star Verified Guest</div>
+        <p>Mike is the consummate storyteller. A very balanced view of history. No punches pulled. Every part is human, beautiful and ugly.</p>
+        <div class="testi-card__author">ahunkins · Minneapolis, MN</div>
+        <div class="testi-card__source">Oct 2025 · via TripAdvisor</div>
       </div>
     </div>
   </div>
@@ -293,10 +281,7 @@
 </footer>
 
 <script src="/js/main.js" defer></script>
-
-<!-- Cookie consent banner -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--dark);color:rgba(255,255,255,.85);padding:14px clamp(1rem,4vw,2.5rem);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:999;font-size:.85rem;font-family:var(--font-body);"><p style="margin:0;flex:1;min-width:200px;">We use essential cookies to keep bookings working. <a href="/privacy/#cookies" style="color:var(--gold);">Learn more</a></p><div style="display:flex;gap:10px;flex-shrink:0;"><button onclick="tcweCookieAccept()" style="background:var(--gold);color:var(--dark);border:none;padding:8px 20px;font-weight:700;border-radius:4px;cursor:pointer;font-size:.85rem;">Got it</button><button onclick="tcweCookieDecline()" style="background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);padding:8px 20px;border-radius:4px;cursor:pointer;font-size:.85rem;">Essential only</button></div></div>
-<script>(function(){try{var c=localStorage.getItem("tcwe_cookie_consent");if(!c){var b=document.getElementById("cookie-banner");if(b)b.style.display="flex";}}catch(e){}})();function tcweCookieAccept(){try{localStorage.setItem("tcwe_cookie_consent","all");}catch(e){}document.getElementById("cookie-banner").style.display="none";}function tcweCookieDecline(){try{localStorage.setItem("tcwe_cookie_consent","essential");}catch(e){}document.getElementById("cookie-banner").style.display="none";}</script>
+<script src="/js/reviews-carousel.js" defer></script>
 
 <!-- Cookie consent banner -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--dark);color:rgba(255,255,255,.85);padding:14px clamp(1rem,4vw,2.5rem);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:999;font-size:.85rem;font-family:var(--font-body);"><p style="margin:0;flex:1;min-width:200px;">We use essential cookies to keep bookings working. <a href="/privacy/#cookies" style="color:var(--gold);">Learn more</a></p><div style="display:flex;gap:10px;flex-shrink:0;"><button onclick="tcweCookieAccept()" style="background:var(--gold);color:var(--dark);border:none;padding:8px 20px;font-weight:700;border-radius:4px;cursor:pointer;font-size:.85rem;">Got it</button><button onclick="tcweCookieDecline()" style="background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);padding:8px 20px;border-radius:4px;cursor:pointer;font-size:.85rem;">Essential only</button></div></div>

@@ -1011,6 +1011,7 @@ textarea:focus-visible,
 .info-card h3 { font-family: var(--font-brand); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; color: var(--dark); }
 .info-card p { font-size: .92rem; margin: 0; color: #444; }
 .section--cream { background: var(--cream); }
+
 /* ── Card credit overlay (for cards using third-party imagery) ─── */
 .card__credit {
   position: absolute;
@@ -1026,4 +1027,152 @@ textarea:focus-visible,
   border-radius: 2px;
   text-shadow: 0 1px 2px rgba(0,0,0,.4);
   pointer-events: none;
+}
+
+/* ---- Reviews Carousel ----
+   Single auto-rotating card on both homepage (.testimonials, dark blue) and
+   tour page (.testi-grid in light cream content). Reuses .testi-card so the
+   card itself looks consistent — only the surrounding chrome (arrows, dots)
+   is added here. JS lives in /js/reviews-carousel.js, data in /data/reviews.json.
+*/
+.testi-carousel {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  outline: none;
+}
+.testi-carousel:focus-visible {
+  box-shadow: 0 0 0 3px rgba(214, 206, 147, .55);
+  border-radius: 12px;
+}
+.testi-carousel__track {
+  position: relative;
+  /* Cards stack on top of each other; the active one fades in. */
+  display: grid;
+  grid-template-areas: "slot";
+}
+.testi-carousel .testi-card {
+  grid-area: slot;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 350ms ease, transform 350ms ease, visibility 0s linear 350ms;
+  pointer-events: none;
+}
+.testi-carousel .testi-card.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 350ms ease, transform 350ms ease, visibility 0s;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .testi-carousel .testi-card { transition: opacity 0s, transform 0s; }
+}
+
+/* Arrows — sit OUTSIDE the card on desktop, OVERLAP on mobile */
+.testi-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  z-index: 2;
+}
+.testi-carousel__arrow:hover,
+.testi-carousel__arrow:focus-visible {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.4);
+  color: var(--gold);
+  outline: none;
+}
+.testi-carousel__arrow--prev { left: -54px; }
+.testi-carousel__arrow--next { right: -54px; }
+
+/* Dots */
+.testi-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+.testi-carousel__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.testi-carousel__dot:hover { background: rgba(255,255,255,.5); }
+.testi-carousel__dot.is-active {
+  background: var(--gold);
+  transform: scale(1.15);
+}
+.testi-carousel__dot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Light-background variant (tour page) */
+.testi-carousel--light .testi-carousel__arrow {
+  background: var(--white);
+  border-color: var(--cream-dark);
+  color: var(--blue);
+  box-shadow: var(--shadow);
+}
+.testi-carousel--light .testi-carousel__arrow:hover,
+.testi-carousel--light .testi-carousel__arrow:focus-visible {
+  color: var(--blue-dark);
+  border-color: var(--blue);
+  background: var(--white);
+}
+.testi-carousel--light .testi-carousel__dot {
+  background: rgba(28,28,28,.18);
+}
+.testi-carousel--light .testi-carousel__dot:hover { background: rgba(28,28,28,.4); }
+.testi-carousel--light .testi-carousel__dot.is-active {
+  background: var(--blue);
+}
+
+/* Card chrome inside the carousel — overrides the .testi-card defaults
+   so the single card feels prominent vs. the old 3-up grid */
+.testi-carousel .testi-card {
+  padding: 40px 36px 32px;
+  min-height: 220px;
+}
+.testi-carousel .testi-card p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.testi-carousel--light .testi-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+}
+.testi-carousel--light .testi-card::before { color: var(--gold-dark); }
+.testi-carousel--light .testi-card p { color: #333; }
+.testi-carousel--light .testi-card__author { color: var(--blue); }
+.testi-carousel--light .testi-card__source { color: #888; }
+.testi-carousel--light .star-row span { color: #c9a227; }
+
+/* Mobile: arrows move inside the card area, smaller card padding */
+@media (max-width: 768px) {
+  .testi-carousel { max-width: 100%; }
+  .testi-carousel__arrow--prev { left: 4px; }
+  .testi-carousel__arrow--next { right: 4px; }
+  .testi-carousel .testi-card {
+    padding: 36px 22px 28px;
+  }
+  .testi-carousel .testi-card p { font-size: .98rem; }
 }
