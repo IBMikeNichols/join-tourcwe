@@ -145,6 +145,21 @@
   to = "https://forestparkpicnics.com/partners"
   status = 301
 
+
+# 2026-05-08 — /menu moves to FPP. /menu/index.html still in the
+# repo, so force=true is required.
+[[redirects]]
+  from = "/menu"
+  to = "https://forestparkpicnics.com/menu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/menu/*"
+  to = "https://forestparkpicnics.com/menu/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
