@@ -12,6 +12,7 @@
   from = "https://scott.tourcwe.com/"
   to = "/scott/"
   status = 200
+  force = true
 
 
 [[redirects]]
