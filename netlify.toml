@@ -1,6 +1,19 @@
 [build]
   publish = "."
 
+# ---------------------------------------------------------------------------
+# scott.tourcwe.com - Scott Pinson's friends-and-family booking link.
+# Cloudflare wildcard *.tourcwe.com already routes here; Netlify needs the
+# alias + this rewrite so the root serves /scott/. Only the bare root is
+# rewritten - subpaths fall through so /css, /js, /assets resolve normally.
+# Status 200 keeps the visible URL as scott.tourcwe.com.
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "https://scott.tourcwe.com/"
+  to = "/scott/"
+  status = 200
+
+
 [[redirects]]
   from = "/tours"
   to = "/tour/"
