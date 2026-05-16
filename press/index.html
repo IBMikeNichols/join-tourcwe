@@ -64,29 +64,63 @@
       <p class="hero__lead">Travel publications, neighborhood partners, and St. Louis institutions that have featured TourCWE or shared our work with their audiences.</p>
     </div>
   </section>
+  <style>
+    .press-wall { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .press-tile { display: flex; align-items: stretch; background: #1c1c1c; color: #efebce; border-left: 4px solid #d6ce93; border-radius: 4px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+    .press-tile:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    .press-tile__logo { flex: 0 0 140px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(255,255,255,.03); }
+    .press-tile__logo img { max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; }
+    .press-tile__body { flex: 1; padding: 1.5rem 1.75rem; display: flex; flex-direction: column; justify-content: center; }
+    .press-tile__name { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.5rem; font-weight: 500; margin: 0 0 .25rem 0; color: #efebce; }
+    .press-tile__meta { font-size: .85rem; color: #d6ce93; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 .75rem 0; font-family: "Nunito", system-ui, sans-serif; }
+    .press-tile__quote { margin: 0 0 .75rem 0; font-size: 1rem; line-height: 1.5; color: #efebce; opacity: .95; }
+    .press-tile__quote em { font-style: italic; }
+    .press-tile__link { display: inline-block; font-size: .9rem; color: #d6ce93; text-decoration: none; border-bottom: 1px solid rgba(214,206,147,.3); padding-bottom: 2px; transition: border-color .2s ease; }
+    .press-tile__link:hover { border-bottom-color: #d6ce93; }
+    .press-tile__link.is-inline { color: #d6ce93; }
+    .press-tile__body a { color: #d6ce93; }
+    .press-inquiry { margin-top: 2.5rem; font-style: italic; color: #628395; text-align: center; }
+    .press-inquiry a { color: #628395; }
+    @media (max-width: 640px) {
+      .press-tile { flex-direction: column; }
+      .press-tile__logo { flex-basis: auto; padding: 1.25rem; }
+      .press-tile__logo img { max-height: 60px; }
+      .press-tile__body { padding: 1rem 1.25rem 1.5rem; }
+      .press-tile__name { font-size: 1.35rem; }
+    }
+  </style>
   <section class="section" aria-label="Press mentions">
     <div class="container container--narrow">
       <h2>Featured by</h2>
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>St. Louis Magazine</h3>
-          <p class="press-meta">Business &middot; August 2025 &middot; by Sarah Fenske</p>
-          <p><em>&ldquo;TourCWE tours let visitors see&mdash;and taste&mdash;the Central West End.&rdquo;</em> A profile of TourCWE founder Mike Nichols and the food-focused walking tour&rsquo;s first season.</p>
-          <p><a href="https://www.stlmag.com/business/tourcwe-walking-tours/" target="_blank" rel="noopener">Read at stlmag.com &#8599;</a></p>
-        </div>
-        <div class="info-card">
-          <h3>Nicki&rsquo;s Central West End Guide</h3>
-          <p class="press-meta">July 2025</p>
-          <p>The neighborhood&rsquo;s long-running insider blog covered the launch of TourCWE and Mike&rsquo;s arrival as a guide on his home turf.</p>
-          <p><a href="https://nickiscentralwestendguide.com/2025/07/mike-nichols-launches-tourcwe/" target="_blank" rel="noopener">Read at nickiscentralwestendguide.com &#8599;</a></p>
-        </div>
-        <div class="info-card">
-          <h3>KAYAK</h3>
-          <p class="press-meta">St. Louis Travel Guide</p>
-          <p>Planning a visit to Missouri? Discover more <a href="https://www.kayak.com/St-Louis.13298.guide">things to do in St. Louis</a> on KAYAK&rsquo;s travel guide.</p>
-        </div>
+      <div class="press-wall">
+        <article class="press-tile">
+          <div class="press-tile__logo"><img src="/images/press/stl-mag-icon.webp" alt="St. Louis Magazine" loading="lazy"></div>
+          <div class="press-tile__body">
+            <h3 class="press-tile__name">St. Louis Magazine</h3>
+            <p class="press-tile__meta">Business &middot; August 2025 &middot; by Sarah Fenske</p>
+            <p class="press-tile__quote"><em>&ldquo;TourCWE tours let visitors see&mdash;and taste&mdash;the Central West End.&rdquo;</em> A profile of TourCWE founder Mike Nichols and the food-focused walking tour&rsquo;s first season.</p>
+            <a class="press-tile__link" href="https://www.stlmag.com/business/tourcwe-walking-tours/" target="_blank" rel="noopener">Read at stlmag.com &#8599;</a>
+          </div>
+        </article>
+        <article class="press-tile">
+          <div class="press-tile__logo"><img src="/images/press/nickis-cwe.png" alt="Nicki&rsquo;s Central West End Guide" loading="lazy"></div>
+          <div class="press-tile__body">
+            <h3 class="press-tile__name">Nicki&rsquo;s Central West End Guide</h3>
+            <p class="press-tile__meta">July 2025</p>
+            <p class="press-tile__quote">The neighborhood&rsquo;s long-running insider blog covered the launch of TourCWE and Mike&rsquo;s arrival as a guide on his home turf.</p>
+            <a class="press-tile__link" href="https://nickiscentralwestendguide.com/2025/07/mike-nichols-launches-tourcwe/" target="_blank" rel="noopener">Read at nickiscentralwestendguide.com &#8599;</a>
+          </div>
+        </article>
+        <article class="press-tile">
+          <div class="press-tile__logo"><img src="/images/press/kayak.svg" alt="KAYAK" loading="lazy"></div>
+          <div class="press-tile__body">
+            <h3 class="press-tile__name">KAYAK</h3>
+            <p class="press-tile__meta">St. Louis Travel Guide</p>
+            <p class="press-tile__quote">Planning a visit to Missouri? Discover more <a href="https://www.kayak.com/St-Louis.13298.guide">things to do in St. Louis</a> on KAYAK&rsquo;s travel guide.</p>
+          </div>
+        </article>
       </div>
-      <p style="margin-top:2rem;font-style:italic;color:var(--steel-blue,#628395);">For press inquiries, partnership opportunities, or to feature TourCWE in your publication, please reach out to <a href="mailto:info@tourcwe.com">info@tourcwe.com</a>.</p>
+      <p class="press-inquiry">For press inquiries, partnership opportunities, or to feature TourCWE in your publication, please reach out to <a href="mailto:info@tourcwe.com">info@tourcwe.com</a>.</p>
     </div>
   </section>
 </main>
